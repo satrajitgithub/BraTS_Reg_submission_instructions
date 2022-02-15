@@ -6,6 +6,7 @@ This page will assist you in submitting a Singularity container for the BraTS-Re
   - [Output files](#output-files)
   - [Sample script (python)](#sample-script-python)
   - [Example usage](#example-usage)
+  - [Our test system resources](#our-test-system-resources)
 - [2. Set up singularity](#2-set-up-singularity)
 - [3. Create a Singularity Definition File](#3-create-a-singularity-definition-file)
   - [`Bootstrap` and `From`](#bootstrap-and-from)
@@ -129,6 +130,12 @@ Here is an example of how to use the above script to adhere to the stipulated in
 ```
 python my_script.py --input /input --output /output
 ```
+### Our test system resources
+- GPU: 1 NVIDIA Tesla V100 16GB memory
+- Processor: 1 Intel 12-Core Xeon Gold 2.6GHz – 125W
+- Singularity version - 3.9.0
+
+
 ## 2. Set up singularity
 For setting up singularity, check out: https://sylabs.io/guides/3.0/user-guide/installation.html .
 Note that singularity runs on Linux natively and can be run on Windows and Mac through virtual machines (VMs).
