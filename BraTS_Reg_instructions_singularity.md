@@ -238,10 +238,10 @@ This section describes how to create your singularity container. You will need:
 ### Build the container from definition file
 The basic syntax for [building a singularity container from a definition file](https://sylabs.io/guides/3.7/user-guide/build_a_container.html#building-containers-from-singularity-definition-files) is:
 ```
-sudo singularity build BraTS_Reg_<team_name>.sif <path to definition file>
+sudo singularity build brats_reg_<team_name>.sif <path to definition file>
 ```
 where:
-- `<team_name>`: Your BraTS_Reg team name (please replace any special character with underscore  `_`)
+- `<team_name>`: Your BraTS_Reg team name (in lower case, also please replace any special character with underscore  `_`)
 - `<path to definition file>`: Specify the path to your definition file. This should be `./<your_def_file.def>` since the definition file should be in your current working directory.
 
 ## 5. Locally test your singularity container
@@ -250,12 +250,12 @@ After you [build your singularity container](#4-build-a-singularity-container), 
 
 ### For CPU
 ```
-singularity run -B "/your/input/folder/":"/input" -B "/your/output/folder/":"/output" BraTS_Reg_<team_name>.sif
+singularity run -B "/your/input/folder/":"/input" -B "/your/output/folder/":"/output" brats_reg_<team_name>.sif
 ```
 ### For GPU
 First, ensure that you have access to a NVIDIA GPU. For example, if you are running it on a High Performance Cluster (HPC), make sure you are logged into a GPU node. Then run:
 ```
-singularity run --nv -B "/your/input/folder/":"/input" -B "/your/output/folder/":"/output" BraTS_Reg_<team_name>.sif
+singularity run --nv -B "/your/input/folder/":"/input" -B "/your/output/folder/":"/output" brats_reg_<team_name>.sif
 ```
 where the `--nv` flag will setup the container’s environment to use an NVIDIA GPU and the basic CUDA libraries to run a CUDA enabled application. For further details on requirements for the `--nv` flag and examples, please check out the source documentation: https://sylabs.io/guides/3.5/user-guide/gpu.html
 
@@ -272,7 +272,7 @@ If you have a job submission script on HPC, it should look something like (follo
 #SBATCH --output=joblogs/%j.out
 
 module load singularity
-singularity run --nv -B "/your/input/folder":"/input" -B "/your/output/folder":"/output" BraTS_Reg_<team_name>.sif
+singularity run --nv -B "/your/input/folder":"/input" -B "/your/output/folder":"/output" brats_reg_<team_name>.sif
 ```
 
 ## 6. Upload your singularity container
@@ -289,26 +289,26 @@ INFO:    Token stored in /home/vagrant/.singularity/remote.yaml
 ```
 3. Once your access token is verified, you can push the container image as follows:
 ```
- singularity push -U BraTS_Reg_<team_name>.sif library://<your_sylab_username>/BraTS_Reg/BraTS_Reg_<team_name>[:<tag>]
+ singularity push -U brats_reg_<team_name>.sif library://<your_sylab_username>/brats_reg/brats_reg_<team_name>[:<tag>]
 ```
 where,
 
-  `BraTS_Reg_<team_name>.sif`: the locally built singularity container image <br/>
+  `brats_reg_<team_name>.sif`: the locally built singularity container image <br/>
   `<your_sylab_username>`: your username created in step 1 <br/>
   `<tag>`: Optional. If no tag is specified, a `:latest` tag is added to your image. In general, taggin the file as latest is fine. However, let’s assume you have a newer version of your container (v0.1), and you want to push that container without deleting your `:latest` container, then you can add a version tag to that container, like so:
   ```
-   singularity push -U BraTS_Reg_<team_name>.sif library://<your_sylab_username>/BraTS_Reg/BraTS_Reg_<team_name>:0.1
+   singularity push -U brats_reg_<team_name>.sif library://<your_sylab_username>/brats_reg_/brats_reg_<team_name>:0.1
   ```
   When your container is being pushed you should see a progress-bar like this:
 
   ```
-  vagrant@vagrant:~$ singularity push -U BraTS_Reg_<team_name>.sif library://<your_sylab_username>/BraTS_Reg/BraTS_Reg_<team_name>
+  vagrant@vagrant:~$ singularity push -U brats_reg_<team_name>.sif library://<your_sylab_username>/brats_reg_/brats_reg_<team_name>
   WARNING: Skipping container verification
   1.2MiB / 1.1GiB [========----------------------------------------------------------------] 1 % 372.8 KiB/s 51m41s
   ```
   When it's over, you should see that its 100% complete:
   ```
-  vagrant@vagrant:~$ singularity push -U BraTS_Reg_<team_name>.sif library://<your_sylab_username>/BraTS_Reg/BraTS_Reg_<team_name>
+  vagrant@vagrant:~$ singularity push -U brats_reg_<team_name>.sif library://<your_sylab_username>/brats_reg_/brats_reg_<team_name>
   WARNING: Skipping container verification
   1.1GiB / 1.1GiB [==============================================================================] 100 % 1.1 MiB/s 0s
   ```
