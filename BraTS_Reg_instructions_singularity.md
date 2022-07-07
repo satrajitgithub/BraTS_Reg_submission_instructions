@@ -81,7 +81,7 @@ Your execution script should follow the following requirements:
   - Your models will be writing your output files with the following names:
     - warped landmark - `BraTSReg_xxx.csv`
     - determinant of jacobian of deformation field - `BraTSReg_xxx_detj.nii.gz`
-    - forward and backward deformation fields - `BraTSReg_xxx_df_f2b.nii.gz` (followup to baseline) and `BraTSReg_xxx_df_b2f.nii.gz` (baseline to followup)
+    - forward and backward deformation fields - `BraTSReg_xxx_df_f2b.nii.gz` (followup to baseline) and `BraTSReg_xxx_df_b2f.nii.gz` (baseline to followup). **Note:** You can simply compute the forward field and take its inverse to compute the backward field. You do not need to perform any additional registrations (by switching the inputs) to compute the backward field.
     - followup sequences registered to baseline sequences - `BraTSReg_xxx_{i}_f2b.nii.gz` where `i` is `t1ce`/`t1`/`t2`/`flair`
 
     where `BraTSReg_xxx` is the subject id.
