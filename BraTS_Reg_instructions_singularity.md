@@ -117,7 +117,7 @@ Your execution script should follow the following requirements:
   -p PATH_TO_OUTPUT_NIFTI, --path_to_output_nifti PATH_TO_OUTPUT_NIFTI
                         Format: /path/to/output_image_after_applying_deformation_field.nii.gz
   ```
-  - **Note**: The `apply_deformation` function should have the flexibility of applying both nearest neighbour and trilinear (or similar) interpolations for segmentation mask type images or normal images, respectively. Based on how you handle it in the script, please add the instructions to https://github.com/satrajitgithub/BraTS_Reg_submission_instructions/blob/e90ae59b400337b7c0e5d491caad4557ef2a637b/my_script.py#L113 (i.e., the `command2_parser` for `interpolation` inside the `help` arg) to let the user know how to specify it.
+  - **Note**: The `apply_deformation` function should have the flexibility of applying both nearest neighbour and trilinear (or similar) interpolations for segmentation mask type images or normal images, respectively. Based on how you handle it in the script, please add the instructions to https://github.com/satrajitgithub/BraTS_Reg_submission_instructions/blob/master/my_script.py#L113 (i.e., inside the `help` arg of `command2_parser` for `interpolation`) to let the user know how to specify it.
 
 **Note:** A template execution script (`my_script.py`) with all the required argument parsers is provided with this repository for your convenience.
 
