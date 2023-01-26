@@ -88,7 +88,7 @@ Your execution script should follow the following requirements:
 	>	## :warning: **Note**:
 	>* `BraTSReg_xxx_df_f2b.nii.gz`: field that warps the follow-up landmarks to baseline space / warps the baseline image to the follow-up image
 	>* `BraTSReg_xxx_df_b2f.nii.gz`: field for which `BraTSReg_xxx_detj.nii.gz` is calculated / warps the follow-up image to the baseline image
-	>*registered scans (produced on `--reg` flag): follow-up scans registered to baseline (for which the `BraTSReg_xxx_df_b2f.nii.gz` deformation field is applied)
+	>* registered scans (produced on `--reg` flag): follow-up scans registered to baseline (for which the `BraTSReg_xxx_df_b2f.nii.gz` deformation field is applied)
   - So, for subject `BraTSReg_001` in `input/`, your `output/` folder should be:
   ```
   output/
